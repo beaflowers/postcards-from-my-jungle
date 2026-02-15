@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Postcards From My Jungle</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="ocean">
+      <header class="mast">
+        <h1>Postcards From My Jungle</h1>
+      </header>
+
+      <section class="slideshow" aria-label="Image Slideshow">
+        <div class="frame">
+          <img id="slide" alt="Slideshow image" />
+          <div class="veil"></div>
+        </div>
+        <p id="animal-text" class="animal-text" aria-live="polite"></p>
+        <div class="controls">
+          <button id="prev" type="button">Prev</button>
+          <button id="next" type="button">Next</button>
+          <button id="toggle" type="button">Pause</button>
+        </div>
+        <p class="note">
+          Audio attempts to start on load. If it stays silent, click anywhere.
+        </p>
+      </section>
+
+      <section class="sound">
+        <audio id="audio-1" preload="auto" loop></audio>
+        <audio id="audio-2" preload="auto" loop></audio>
+        <audio id="audio-3" preload="auto" loop></audio>
+        <audio id="audio-4" preload="auto" loop></audio>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

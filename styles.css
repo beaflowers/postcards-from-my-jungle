@@ -1,0 +1,177 @@
+:root {
+  --ink: #e7f7ff;
+  --deep: #071722;
+  --teal: #1ab7b0;
+  --reef: #ff6f91;
+  --mist: rgba(255, 255, 255, 0.12);
+  --glow: rgba(26, 183, 176, 0.45);
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Spectral", "Garamond", "Times New Roman", serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 20%, #163e4f 0%, #071722 55%);
+  min-height: 100vh;
+}
+
+.ocean {
+  min-height: 100vh;
+  display: grid;
+  gap: 2rem;
+  padding: 3rem clamp(1rem, 3vw, 4rem) 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ocean::before,
+.ocean::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(26, 183, 176, 0.25), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(255, 111, 145, 0.2), transparent 55%),
+    repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 18px);
+  filter: blur(0.5px);
+  z-index: 0;
+}
+
+.ocean::after {
+  mix-blend-mode: screen;
+  opacity: 0.6;
+  animation: drift 26s ease-in-out infinite;
+}
+
+.mast,
+.slideshow {
+  position: relative;
+  z-index: 1;
+}
+
+.mast h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2.2rem, 3vw, 3.5rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mast p {
+  max-width: 40rem;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.6;
+  color: rgba(231, 247, 255, 0.9);
+}
+
+.slideshow {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.frame {
+  position: relative;
+  width: min(900px, 100%);
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 60px var(--shadow),
+    0 0 40px var(--glow);
+  background: var(--mist);
+  backdrop-filter: blur(6px);
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.1) contrast(1.05);
+  transform: scale(1.02);
+  transition: opacity 700ms ease, transform 8s ease;
+}
+
+.frame img.is-fading {
+  opacity: 0.2;
+  transform: scale(1.05);
+}
+
+.veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(7, 23, 34, 0.2), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08), transparent 60%);
+  pointer-events: none;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.controls button {
+  border: 1px solid rgba(231, 247, 255, 0.3);
+  background: rgba(7, 23, 34, 0.6);
+  color: var(--ink);
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(26, 183, 176, 0.2);
+}
+
+.note {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin: 0;
+}
+
+.animal-text {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(231, 247, 255, 0.85);
+  margin: 0;
+  text-shadow: 0 0 16px rgba(26, 183, 176, 0.3);
+}
+
+.sound {
+  display: none;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-2%, 2%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 700px) {
+  .ocean {
+    padding: 2rem 1.2rem 3rem;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+}
