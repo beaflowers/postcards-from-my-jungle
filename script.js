@@ -1,12 +1,12 @@
 const imageCount = 50;
 const imageFolder = "assets/images";
-const imageExt = "jpg";
+const imageExt = "png";
 
 const audioFiles = [
-  "assets/audio/audio-1.mp3",
-  "assets/audio/audio-2.mp3",
-  "assets/audio/audio-3.mp3",
-  "assets/audio/audio-4.mp3",
+  "assets/audio/output-0.wav",
+  "assets/audio/output-1.wav",
+  "assets/audio/output-2.wav",
+  "assets/audio/output-3.wav",
 ];
 
 const animalPhrases = [
@@ -46,7 +46,8 @@ let isPlaying = true;
 let timer = null;
 
 function imagePath(i) {
-  return `${imageFolder}/image-${String(i).padStart(2, "0")}.${imageExt}`;
+  const fileIndex = i - 1;
+  return `${imageFolder}/animal_${String(fileIndex).padStart(2, "0")}.${imageExt}`;
 }
 
 function updateSlide(nextIndex) {
