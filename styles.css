@@ -34,6 +34,8 @@ body {
   padding: 2rem clamp(1rem, 3vw, 4rem) 3rem;
   position: relative;
   overflow: hidden;
+  justify-items: center;
+  text-align: center;
 }
 
 .ocean::before,
@@ -43,7 +45,7 @@ body {
   inset: -20%;
   background:
     radial-gradient(circle at 20% 20%, rgba(26, 183, 176, 0.25), transparent 60%),
-    radial-gradient(circle at 70% 60%, rgba(255, 111, 145, 0.2), transparent 55%),
+    radial-gradient(circle at 70% 60%, rgba(35, 140, 200, 0.2), transparent 55%),
     repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 18px);
   filter: blur(0.5px);
   z-index: 0;
@@ -63,9 +65,10 @@ body {
 
 .mast h1 {
   margin: 0 0 0.5rem;
+  font-family: "Homemade Apple", "Spectral", "Garamond", "Times New Roman", serif;
   font-size: clamp(2.2rem, 3vw, 3.5rem);
   letter-spacing: 0.06em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .mast p {
@@ -78,6 +81,7 @@ body {
 .slideshow {
   display: grid;
   gap: 1.2rem;
+  justify-items: center;
 }
 
 .frame {
@@ -120,6 +124,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  justify-content: center;
 }
 
 .controls button {
